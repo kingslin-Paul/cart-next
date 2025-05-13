@@ -1,7 +1,7 @@
 'use client';
 import { useCart } from '@/app/context/CartContext';
 import React, { useState } from 'react';
-
+import Image from 'next/image'
 
 type Product = {
   id: number;
@@ -38,7 +38,7 @@ export default function ProductModal({ product, onClose }: { product: Product; o
 
         {/* Image */}
         <div className="md:w-1/2 bg-gray-100 flex justify-center items-center p-4">
-          <img src={product.image} alt={product.title} className="object-contain h-60 md:h-80" />
+          <Image width={300} height={240} src={product.image} alt={product.title} className="object-contain h-60 md:h-80" />
         </div>
 
         {/* Details */}

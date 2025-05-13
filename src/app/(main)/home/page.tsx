@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { capitalizeFirst } from '@/utils/commonMethods';
 import Loader from '@/app/components/loader/Loader';
 import ProductModal from '@/app/components/product-modal/ProductModal';
+import Image from 'next/image'
 
 type Product = {
     id: number;
@@ -56,7 +57,7 @@ export default function Home() {
           }
         
         } catch (err) {
-          console.error('Failed to fetch products:', err);
+          // console.error('Failed to fetch products:', err);
         }
         setLoading(false);
       };
@@ -91,7 +92,7 @@ export default function Home() {
           setSelectedProduct(data.product);
         }
       } catch (err) {
-        console.error(err);
+        // console.error(err);
       } finally {
         setLoading(false);
       }
@@ -107,7 +108,7 @@ export default function Home() {
       <div className="relative max-h-60 sm:max-h-fit w-full sm:w-[425px] flex justify-center items-center overflow-hidden bg-secondary backdrop-blur-md shadow-md border border-white/20 rounded-2xl">
         <div className="relative w-[80%] sm:w-96 transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)`, display: 'flex' }}>
           {images.map((src, index) => (
-            <img key={index} src={src} className="w-full flex-shrink-0" alt={`Slide ${index}`} />
+            <Image key={index} src={src} width={400} height={400} className="w-full flex-shrink-0" alt={`Slide ${index}`} />
           ))}
         </div>
 

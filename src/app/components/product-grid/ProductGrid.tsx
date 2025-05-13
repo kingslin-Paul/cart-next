@@ -1,5 +1,6 @@
 import React from 'react'
 import './productgrid.css'
+import Image from 'next/image'
 
   type Product = {
     id: number;
@@ -22,7 +23,7 @@ function ProductGrid({ products,onProductClick  }: { products: Product[] ,onProd
         key={product.id} onClick={() => onProductClick(product.id)}
         className="bg-white cursor-pointer rounded-xl shadow p-3 hover:shadow-md transition-transform duration-300 transform hover:scale-[1.04]"
         >
-        <img
+        <Image width={200} height={128}
             src={product.image}
             alt={product.title}
             className="w-full h-32 sm:h-40 object-contain rounded"

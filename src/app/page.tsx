@@ -1,7 +1,11 @@
 import { Activity } from 'lucide-react'
 import Image from 'next/image'
+import { redirect } from 'next/navigation';
 
 export default function Home() {
+
+   redirect('/home');
+
   return (
     <>
     {/* <div className='text-primeborder'>for border</div>

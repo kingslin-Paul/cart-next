@@ -2,6 +2,7 @@
 
 import { useCart } from "@/app/context/CartContext";
 import { Trash2 } from "lucide-react";
+import Image from 'next/image'
 import Link from "next/link";
 
 export default function CartPage() {
@@ -23,7 +24,9 @@ export default function CartPage() {
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-4 p-4">
       {/* Cart Items */}
-      <div className="lg:w-[74%] space-y-4">
+
+      { 
+      cartItems.length > 0 && <div className="lg:w-[74%] space-y-4">
         {cartItems.map((item) => (
           <div key={item.id} className="relative flex gap-4 bg-[#F2EFE7] p-4 rounded-lg shadow-sm">
 
@@ -35,7 +38,7 @@ export default function CartPage() {
               >
                 <Trash2 size={18} />
               </button>
-            <img src={item.image} alt={item.title} className="w-24 h-24 object-contain rounded" />
+            <Image src={item.image} alt={item.title} width={96} height={96} className="w-24 h-24 object-contain rounded" />
             <div className="flex-1">
               <h3 className="font-semibold text-[#006A71] line-clamp-2">{item.title}</h3>
               {/* <p className="text-sm text-gray-600">Brand: {item.brand}</p>
@@ -66,6 +69,9 @@ export default function CartPage() {
         ))}
       </div>
 
+      }
+      
+
       {/* Summary */}
       {
         cartItems.length > 0 && 
@@ -79,10 +85,13 @@ export default function CartPage() {
       </div>
       }
 
-      <div className="flex flex-col items-center justify-center py-4 text-center">
-      <img
+      {
+        cartItems.length <= 0 && <div className="flex flex-col items-center mx-auto justify-center py-4 text-center">
+      <Image
         src="/empty-cart.jfif"
         alt="Empty cart"
+        width={192}
+        height={192}
         className="size-48 lg:size-60 object-contain"
       />
       <h2 className="text-2xl font-semibold text-[#006A71] mb-2">Your cart is empty</h2>
@@ -94,6 +103,8 @@ export default function CartPage() {
         Shop Now
       </Link>
     </div>
+      }
+      
       
     </div>
   );
