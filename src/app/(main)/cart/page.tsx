@@ -88,7 +88,7 @@ export default function CartPage() {
       {
         cartItems.length <= 0 && <div className="flex flex-col items-center mx-auto justify-center py-4 text-center">
       <Image
-        src="/empty-cart.jfif"
+        src="/empty-cart2.jpg"
         alt="Empty cart"
         width={192}
         height={192}
