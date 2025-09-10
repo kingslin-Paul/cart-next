@@ -10,7 +10,7 @@ export const capitalizeFirst = (value: string): string => {
     price: 299.99,
     description: "A 50-inch smart TV with 4K resolution.",
     category: "tv",
-    image: "/products/headphone.png",
+    image: "/products/smart-tv.png",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ export const capitalizeFirst = (value: string): string => {
     price: 99.99,
     description: "Noise cancelling over-ear headphones.",
     category: "audio",
-    image: "/products/smart-tv.png",
+    image: "/products/headphone.png",
   },
   {
     id: 3,
