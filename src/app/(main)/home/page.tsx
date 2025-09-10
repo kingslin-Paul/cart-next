@@ -4,7 +4,7 @@ import './home.css'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { capitalizeFirst } from '@/utils/commonMethods';
+import { capitalizeFirst, staticProducts } from '@/utils/commonMethods';
 import Loader from '@/app/components/loader/Loader';
 import ProductModal from '@/app/components/product-modal/ProductModal';
 import Image from 'next/image'
@@ -61,8 +61,20 @@ export default function Home() {
         }
         setLoading(false);
       };
+
+      function fetchStaticProducts(){
+        setLoading(true);
+        let filtered =
+          selectedCategory === "all"
+            ? staticProducts
+            : staticProducts.filter((p:any) => p.category === selectedCategory);
+
+        setProducts(filtered);
+        setLoading(false);
+      }
   
-      fetchProducts();
+      // fetchProducts();
+      fetchStaticProducts();
     }, [selectedCategory]);
 
     
