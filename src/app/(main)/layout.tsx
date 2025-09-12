@@ -14,7 +14,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <Header toggleSidebar={() => setIsSidebarOpen(prev => !prev)} />
       <div className="flex h-full relative overflow-hidden">
         <Sidebar isOpen={isSidebarOpen} />
-        <main className="flex-1 p-4 overflow-auto">{children}</main>
+        <main style={{height:'calc(100vh - 75px)'}} className="flex-1 p-4 overflow-auto">{children}</main>
       </div>
     </CartProvider>
     </>
