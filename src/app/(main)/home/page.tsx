@@ -98,11 +98,15 @@ export default function Home() {
     const onProductClick = async (id: number) => {
       try {
         setLoading(true);
-        const res = await fetch(`https://fakestoreapi.in/api/products/${id}`);
-        const data = await res.json();
-        if (data.status === 'SUCCESS') {
-          setSelectedProduct(data.product);
-        }
+        // const res = await fetch(`https://fakestoreapi.in/api/products/${id}`);
+        // const data = await res.json();
+        // if (data.status === 'SUCCESS') {
+        //   setSelectedProduct(data.product);
+        // }
+          const product = products.find((p:any) => p.id === id);
+          if (product) {
+            setSelectedProduct(product);
+          }
       } catch (err) {
         // console.error(err);
       } finally {
